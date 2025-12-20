@@ -89,10 +89,10 @@ with row1_col2:
     # without clipping the browser audio driver.
     st.audio(signal / 10.0, sample_rate=fe)
     
-    st.info(
-        f"**T:** {1/f:.4f} s\n\n"
-        f"**$\lambda$:** {343/f:.2f} m"
-    )
+    # st.info(
+    #     f"**T:** {1/f:.4f} s\n\n"
+    #     f"**$\lambda$:** {343/f:.2f} m"
+    # )
 
 # --- Theory Expander ---
 with st.expander("📚 The Math Behind the Sound"):
@@ -107,6 +107,7 @@ with st.expander("📚 The Math Behind the Sound"):
         A shift of $2\pi$ is one full cycle. While visually obvious, 
         constant phase shifts are generally **inaudible** to the human ear.
     """)
+
 
 
 
