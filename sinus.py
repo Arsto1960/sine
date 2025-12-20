@@ -38,11 +38,10 @@ with st.container(border=True):
     
     with col1:
         # Limit max to 10.0 to match original, set step for precision
-        a = st.slider('Amplitude (a)', 0.0, 10.0, 5.0, 0.1)
+        a = st.slider('Amplitude (A)', 0.0, 10.0, 5.0, 0.1)
     with col2:
         f = st.slider('Frequency (f) [Hz]', 0, 1000, 440, 1)
     with col3:
-        # Use latex label for phase
         phi = st.slider(r'Phase ($\phi$) [rad]', -np.pi, np.pi, 0.0, 0.1, format="%.2f")
 
 # --- Calculations ---
@@ -64,7 +63,7 @@ with plt.style.context('default'):
     
     # Visual Polish
     ax.set_title(r'Waveform Zoom (10 ms): $a \sin(2 \pi f t + \phi)$', color='gray', fontsize=10)
-    ax.set_ylim(-11, 11)  # Fixed y-limits to make amplitude changes obvious
+    ax.set_ylim(-11, 11)
     ax.set_xlim(0, 0.010)
     ax.set_xlabel('Time (seconds)', fontsize=8, color='gray')
     ax.tick_params(axis='both', colors='gray', labelsize=8)
@@ -91,8 +90,8 @@ with row1_col2:
     st.audio(signal / 10.0, sample_rate=fe)
     
     st.info(
-        f"**T (Period):** {1/f:.4f} s\n\n"
-        f"**$\lambda$ (Wavelength):** {343/f:.2f} m"
+        f"**T:** {1/f:.4f} s\n\n"
+        f"**$\lambda$:** {343/f:.2f} m"
     )
 
 # --- Theory Expander ---
@@ -108,5 +107,6 @@ with st.expander("📚 The Math Behind the Sound"):
         A shift of $2\pi$ is one full cycle. While visually obvious, 
         constant phase shifts are generally **inaudible** to the human ear.
     """)
+
 
 
